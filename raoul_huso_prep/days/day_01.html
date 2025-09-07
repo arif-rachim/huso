@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 1: Biology - Cell Theory & Organelles | HUSO Prep</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .day-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .learning-section {
+            background: white;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .objectives {
+            background: #e8f5e8;
+            border-left: 4px solid #4caf50;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .concept-box {
+            background: #f8f9ff;
+            border: 1px solid #e1e5fe;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 6px;
+        }
+        
+        .worked-example {
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .practice-problem {
+            background: #f3e5f5;
+            border: 1px solid #e1bee7;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            border-radius: 6px;
+        }
+        
+        .quiz-section {
+            background: #ffebee;
+            border: 2px solid #f44336;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+        
+        .quiz-question {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 6px;
+        }
+        
+        .options {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .options li {
+            padding: 0.5rem;
+            margin: 0.3rem 0;
+            background: #f5f5f5;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .options li:hover {
+            background: #e3f2fd;
+        }
+        
+        .options li.selected {
+            background: #2196f3;
+            color: white;
+        }
+        
+        .options li.correct {
+            background: #4caf50;
+            color: white;
+        }
+        
+        .options li.incorrect {
+            background: #f44336;
+            color: white;
+        }
+        
+        .feedback {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 6px;
+            display: none;
+        }
+        
+        .feedback.correct {
+            background: #e8f5e8;
+            border: 1px solid #4caf50;
+            color: #2e7d32;
+        }
+        
+        .feedback.incorrect {
+            background: #ffebee;
+            border: 1px solid #f44336;
+            color: #c62828;
+        }
+        
+        .timer {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #ff9800;
+            margin-bottom: 1rem;
+        }
+        
+        .progress-tracker {
+            background: #f5f5f5;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        
+        .checklist {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .checklist li {
+            padding: 0.5rem;
+            margin: 0.3rem 0;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .checklist li.completed {
+            background: #e8f5e8;
+            border-color: #4caf50;
+        }
+        
+        .btn-primary {
+            background: #2196f3;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.2s;
+        }
+        
+        .btn-primary:hover {
+            background: #1976d2;
+        }
+        
+        .btn-secondary {
+            background: #757575;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-left: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="day-header">
+            <h1>🧬 Day 1: Biology - Cell Theory & Organelles</h1>
+            <p><strong>Learning Goal:</strong> Master the fundamental concepts of cell structure and organelle functions</p>
+            <div class="timer">⏱️ Estimated Time: 45-60 minutes</div>
+        </header>
+
+        <!-- Learning Objectives Section -->
+        <section class="learning-section">
+            <div class="objectives">
+                <h2>🎯 Today's Learning Objectives</h2>
+                <ul>
+                    <li>Understand the Cell Theory and its three main principles</li>
+                    <li>Identify key cellular organelles and their specific functions</li>
+                    <li>Distinguish between prokaryotic and eukaryotic cells</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Core Concepts Section -->
+        <section class="learning-section">
+            <h2>📚 Core Concepts (15-20 min read)</h2>
+            
+            <div class="concept-box">
+                <h3>1. Cell Theory</h3>
+                <p><strong>The Cell Theory consists of three fundamental principles:</strong></p>
+                <ol>
+                    <li><strong>All living things are made of one or more cells</strong> - From the simplest bacteria to complex organisms like humans</li>
+                    <li><strong>The cell is the basic unit of life</strong> - Cells are the smallest functional unit that can carry out all life processes</li>
+                    <li><strong>All cells come from existing cells</strong> - New cells are produced by cell division, not spontaneous generation</li>
+                </ol>
+                <p><em>💡 Key Insight: This theory revolutionized biology by establishing cells as the foundation of all life.</em></p>
+            </div>
+
+            <div class="concept-box">
+                <h3>2. Prokaryotic vs Eukaryotic Cells</h3>
+                <table style="width: 100%; border-collapse: collapse; margin: 1rem 0;">
+                    <tr style="background: #f5f5f5;">
+                        <th style="padding: 0.5rem; border: 1px solid #ddd;">Feature</th>
+                        <th style="padding: 0.5rem; border: 1px solid #ddd;">Prokaryotic</th>
+                        <th style="padding: 0.5rem; border: 1px solid #ddd;">Eukaryotic</th>
+                    </tr>
+                    <tr>
+                        <td style="padding: 0.5rem; border: 1px solid #ddd;"><strong>Nucleus</strong></td>
+                        <td style="padding: 0.5rem; border: 1px solid #ddd;">No membrane-bound nucleus</td>
+                        <td style="padding: 0.5rem; border: 1px solid #ddd;">Membrane-bound nucleus</td>
+                    </tr>
+                    <tr style="background: #f9f9f9;">
+                        <td style="padding: 0.5rem; border: 1px solid #ddd;"><strong>Organelles</strong></td>
+                        <td style="padding: 0.5rem; border: 1px solid #ddd;">Few membrane-bound organelles</td>
+                        <td style="padding: 0.5rem; border: 1px solid #ddd;">Many specialized organelles</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 0.5rem; border: 1px solid #ddd;"><strong>Examples</strong></td>
+                        <td style="padding: 0.5rem; border: 1px solid #ddd;">Bacteria, Archaea</td>
+                        <td style="padding: 0.5rem; border: 1px solid #ddd;">Plants, Animals, Fungi, Protists</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="concept-box">
+                <h3>3. Key Cellular Organelles & Functions</h3>
+                
+                <h4>🔬 Universal Organelles (Found in all cells):</h4>
+                <ul>
+                    <li><strong>Cell Membrane:</strong> Controls what enters and leaves the cell (selective permeability)</li>
+                    <li><strong>Cytoplasm:</strong> Jelly-like substance where cellular processes occur</li>
+                    <li><strong>Ribosomes:</strong> Protein synthesis factories</li>
+                    <li><strong>Genetic Material:</strong> Contains DNA with instructions for life</li>
+                </ul>
+
+                <h4>🌱 Plant-Specific Organelles:</h4>
+                <ul>
+                    <li><strong>Cell Wall:</strong> Rigid structure providing support and protection</li>
+                    <li><strong>Chloroplasts:</strong> Contain chlorophyll for photosynthesis</li>
+                    <li><strong>Large Central Vacuole:</strong> Maintains turgor pressure and stores water</li>
+                </ul>
+
+                <h4>🐾 Animal Cell Organelles:</h4>
+                <ul>
+                    <li><strong>Nucleus:</strong> Control center containing DNA</li>
+                    <li><strong>Mitochondria:</strong> "Powerhouse" - produces ATP energy</li>
+                    <li><strong>Endoplasmic Reticulum (ER):</strong> Transport system for materials</li>
+                    <li><strong>Golgi Apparatus:</strong> "Post office" - packages and ships proteins</li>
+                    <li><strong>Lysosomes:</strong> "Cleanup crew" - digests waste materials</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Worked Examples Section -->
+        <section class="learning-section">
+            <h2>🔬 Worked Examples (10-15 min)</h2>
+            
+            <div class="worked-example">
+                <h3>Example 1: Identifying Cell Types</h3>
+                <p><strong>Question:</strong> A scientist observes a cell under a microscope and notes it has a cell wall, chloroplasts, and a large central vacuole. What type of cell is this?</p>
+                
+                <p><strong>Solution Steps:</strong></p>
+                <ol>
+                    <li><strong>Identify key features:</strong> Cell wall, chloroplasts, large central vacuole</li>
+                    <li><strong>Match to cell types:</strong> These are plant-specific organelles</li>
+                    <li><strong>Determine cell type:</strong> This is a plant cell (eukaryotic)</li>
+                </ol>
+                
+                <p><strong>Answer:</strong> Plant cell - The presence of cell wall, chloroplasts, and large central vacuole are distinctive features of plant cells.</p>
+            </div>
+
+            <div class="worked-example">
+                <h3>Example 2: Organelle Function</h3>
+                <p><strong>Question:</strong> Why are mitochondria called the "powerhouses" of the cell?</p>
+                
+                <p><strong>Solution:</strong></p>
+                <p>Mitochondria are called powerhouses because:</p>
+                <ul>
+                    <li>They produce ATP (adenosine triphosphate) through cellular respiration</li>
+                    <li>ATP is the cell's main energy currency</li>
+                    <li>Without mitochondria, cells couldn't generate the energy needed for life processes</li>
+                    <li>They convert glucose and oxygen into usable energy for the cell</li>
+                </ul>
+            </div>
+
+            <div class="worked-example">
+                <h3>Example 3: Cell Theory Application</h3>
+                <p><strong>Question:</strong> How does the Cell Theory explain why we don't see spontaneous generation of life?</p>
+                
+                <p><strong>Solution:</strong></p>
+                <p>The third principle of Cell Theory states "All cells come from existing cells." This means:</p>
+                <ul>
+                    <li>New cells only arise through division of pre-existing cells</li>
+                    <li>Life cannot spontaneously appear from non-living matter</li>
+                    <li>This principle was proven by scientists like Louis Pasteur</li>
+                    <li>It explains why sterilized environments remain sterile unless contaminated</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Practice Problems Section -->
+        <section class="learning-section">
+            <h2>💪 Practice Problems (20-30 min)</h2>
+            <p><em>Try these problems to test your understanding. Solutions are provided below.</em></p>
+            
+            <div class="practice-problem">
+                <h4>Problem 1:</h4>
+                <p>List three differences between prokaryotic and eukaryotic cells.</p>
+            </div>
+
+            <div class="practice-problem">
+                <h4>Problem 2:</h4>
+                <p>A cell has no cell wall, contains mitochondria, and has a nucleus. Is this most likely a plant cell, animal cell, or bacterial cell? Explain your reasoning.</p>
+            </div>
+
+            <div class="practice-problem">
+                <h4>Problem 3:</h4>
+                <p>Match each organelle with its primary function:</p>
+                <ul>
+                    <li>A. Nucleus</li>
+                    <li>B. Ribosome</li>
+                    <li>C. Mitochondria</li>
+                    <li>D. Chloroplast</li>
+                </ul>
+                <p>Functions: 1. Protein synthesis, 2. Energy production, 3. Controls cell activities, 4. Photosynthesis</p>
+            </div>
+
+            <div class="practice-problem">
+                <h4>Problem 4:</h4>
+                <p>Why is the cell membrane described as "selectively permeable"? Give two examples of what it allows in and what it keeps out.</p>
+            </div>
+
+            <div class="practice-problem">
+                <h4>Problem 5:</h4>
+                <p>A student claims that viruses disprove the Cell Theory because they are alive but not made of cells. How would you respond to this claim?</p>
+            </div>
+        </section>
+
+        <!-- Quick Quiz Section -->
+        <section class="quiz-section">
+            <h2>⚡ Quick Quiz (10 min)</h2>
+            <p><strong>Instructions:</strong> Answer all 5 questions. +1 point for correct answers, -0.25 for incorrect, 0 for blank.</p>
+            
+            <div class="quiz-question" id="q1">
+                <h4>Question 1: According to Cell Theory, which statement is TRUE?</h4>
+                <ul class="options">
+                    <li onclick="selectAnswer(1, 'A')">A) Cells can arise spontaneously from non-living matter</li>
+                    <li onclick="selectAnswer(1, 'B')">B) All living things are made of one or more cells</li>
+                    <li onclick="selectAnswer(1, 'C')">C) Only complex organisms are made of cells</li>
+                    <li onclick="selectAnswer(1, 'D')">D) Cells are not the basic unit of life</li>
+                    <li onclick="selectAnswer(1, 'E')">E) Cell theory only applies to plants</li>
+                </ul>
+                <div class="feedback" id="feedback1"></div>
+            </div>
+
+            <div class="quiz-question" id="q2">
+                <h4>Question 2: Which organelle is responsible for protein synthesis?</h4>
+                <ul class="options">
+                    <li onclick="selectAnswer(2, 'A')">A) Nucleus</li>
+                    <li onclick="selectAnswer(2, 'B')">B) Mitochondria</li>
+                    <li onclick="selectAnswer(2, 'C')">C) Ribosome</li>
+                    <li onclick="selectAnswer(2, 'D')">D) Golgi apparatus</li>
+                    <li onclick="selectAnswer(2, 'E')">E) Lysosome</li>
+                </ul>
+                <div class="feedback" id="feedback2"></div>
+            </div>
+
+            <div class="quiz-question" id="q3">
+                <h4>Question 3: What is the main difference between prokaryotic and eukaryotic cells?</h4>
+                <ul class="options">
+                    <li onclick="selectAnswer(3, 'A')">A) Prokaryotes are larger than eukaryotes</li>
+                    <li onclick="selectAnswer(3, 'B')">B) Eukaryotes have a membrane-bound nucleus</li>
+                    <li onclick="selectAnswer(3, 'C')">C) Prokaryotes don't have ribosomes</li>
+                    <li onclick="selectAnswer(3, 'D')">D) Eukaryotes don't have DNA</li>
+                    <li onclick="selectAnswer(3, 'E')">E) There is no significant difference</li>
+                </ul>
+                <div class="feedback" id="feedback3"></div>
+            </div>
+
+            <div class="quiz-question" id="q4">
+                <h4>Question 4: Which organelle would you expect to find ONLY in plant cells?</h4>
+                <ul class="options">
+                    <li onclick="selectAnswer(4, 'A')">A) Nucleus</li>
+                    <li onclick="selectAnswer(4, 'B')">B) Mitochondria</li>
+                    <li onclick="selectAnswer(4, 'C')">C) Ribosomes</li>
+                    <li onclick="selectAnswer(4, 'D')">D) Chloroplasts</li>
+                    <li onclick="selectAnswer(4, 'E')">E) Cell membrane</li>
+                </ul>
+                <div class="feedback" id="feedback4"></div>
+            </div>
+
+            <div class="quiz-question" id="q5">
+                <h4>Question 5: If a cell's mitochondria were damaged, which process would be most directly affected?</h4>
+                <ul class="options">
+                    <li onclick="selectAnswer(5, 'A')">A) Protein synthesis</li>
+                    <li onclick="selectAnswer(5, 'B')">B) Photosynthesis</li>
+                    <li onclick="selectAnswer(5, 'C')">C) Energy production</li>
+                    <li onclick="selectAnswer(5, 'D')">D) DNA replication</li>
+                    <li onclick="selectAnswer(5, 'E')">E) Waste removal</li>
+                </ul>
+                <div class="feedback" id="feedback5"></div>
+            </div>
+
+            <div style="text-align: center; margin-top: 2rem;">
+                <button class="btn-primary" onclick="calculateScore()">Submit Quiz</button>
+                <div id="quiz-results" style="margin-top: 1rem; font-size: 1.2rem;"></div>
+            </div>
+        </section>
+
+        <!-- Self-Assessment Section -->
+        <section class="learning-section">
+            <div class="progress-tracker">
+                <h2>📊 Self-Assessment Checklist</h2>
+                <p><em>Check off each item as you master it:</em></p>
+                <ul class="checklist" id="checklist">
+                    <li onclick="toggleCheck(this)">✓ I can state the three principles of Cell Theory</li>
+                    <li onclick="toggleCheck(this)">✓ I understand the difference between prokaryotic and eukaryotic cells</li>
+                    <li onclick="toggleCheck(this)">✓ I can identify key organelles and their functions</li>
+                    <li onclick="toggleCheck(this)">✓ I can distinguish between plant and animal cells</li>
+                    <li onclick="toggleCheck(this)">✓ I understand why cells are called the basic unit of life</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Tomorrow's Preview -->
+        <section class="learning-section">
+            <h2>🔗 Tomorrow's Preview: Day 2 Physics</h2>
+            <div style="background: #e3f2fd; padding: 1rem; border-radius: 6px;">
+                <h3>🚀 Kinematics - Motion Basics</h3>
+                <p><strong>What you'll learn:</strong></p>
+                <ul>
+                    <li>Displacement, velocity, and acceleration</li>
+                    <li>Kinematic equations of motion</li>
+                    <li>Graphical analysis of motion</li>
+                </ul>
+                <p><em>💡 Quick prep: Review basic algebra and graphing - you'll need it!</em></p>
+            </div>
+        </section>
+
+        <!-- Navigation -->
+        <nav style="text-align: center; margin: 2rem 0;">
+            <a href="../index.html" class="btn-secondary">← Back to Dashboard</a>
+            <a href="day_02.html" class="btn-primary">Continue to Day 2 →</a>
+        </nav>
+    </div>
+
+    <script>
+        // Quiz functionality
+        const answers = ['B', 'C', 'B', 'D', 'C'];
+        const explanations = [
+            "Correct! The second principle of Cell Theory states that all living things are made of one or more cells.",
+            "Correct! Ribosomes are the cellular structures responsible for protein synthesis in all cells.",
+            "Correct! The main distinguishing feature is that eukaryotic cells have a membrane-bound nucleus, while prokaryotic cells do not.",
+            "Correct! Chloroplasts are unique to plant cells and are responsible for photosynthesis.",
+            "Correct! Mitochondria produce ATP through cellular respiration, so damage would directly affect energy production."
+        ];
+        
+        let userAnswers = {};
+        
+        function selectAnswer(questionNum, answer) {
+            userAnswers[questionNum] = answer;
+            
+            // Clear previous selections
+            const options = document.querySelectorAll(`#q${questionNum} .options li`);
+            options.forEach(li => {
+                li.classList.remove('selected');
+            });
+            
+            // Mark current selection
+            event.target.classList.add('selected');
+        }
+        
+        function calculateScore() {
+            let correct = 0;
+            let incorrect = 0;
+            let blank = 0;
+            
+            for (let i = 1; i <= 5; i++) {
+                const feedback = document.getElementById(`feedback${i}`);
+                const options = document.querySelectorAll(`#q${i} .options li`);
+                
+                if (userAnswers[i]) {
+                    if (userAnswers[i] === answers[i-1]) {
+                        correct++;
+                        feedback.className = 'feedback correct';
+                        feedback.innerHTML = `✅ ${explanations[i-1]}`;
+                        options.forEach(li => {
+                            if (li.textContent.startsWith(answers[i-1])) {
+                                li.classList.add('correct');
+                            }
+                        });
+                    } else {
+                        incorrect++;
+                        feedback.className = 'feedback incorrect';
+                        feedback.innerHTML = `❌ Incorrect. The correct answer is ${answers[i-1]}. ${explanations[i-1]}`;
+                        options.forEach(li => {
+                            if (li.textContent.startsWith(userAnswers[i])) {
+                                li.classList.add('incorrect');
+                            }
+                            if (li.textContent.startsWith(answers[i-1])) {
+                                li.classList.add('correct');
+                            }
+                        });
+                    }
+                } else {
+                    blank++;
+                    feedback.className = 'feedback incorrect';
+                    feedback.innerHTML = `⚠️ No answer selected. The correct answer is ${answers[i-1]}. ${explanations[i-1]}`;
+                }
+                
+                feedback.style.display = 'block';
+            }
+            
+            const score = correct - (incorrect * 0.25);
+            const percentage = ((correct / 5) * 100).toFixed(1);
+            
+            const results = document.getElementById('quiz-results');
+            results.innerHTML = `
+                <strong>Quiz Results:</strong><br>
+                Correct: ${correct} | Incorrect: ${incorrect} | Blank: ${blank}<br>
+                Score: ${score.toFixed(2)}/5.00 (${percentage}%)
+            `;
+            
+            // Save progress to localStorage
+            const today = new Date().toDateString();
+            const progress = JSON.parse(localStorage.getItem('husoProgress') || '{}');
+            progress.day1 = {
+                completed: true,
+                score: score,
+                percentage: percentage,
+                date: today
+            };
+            localStorage.setItem('husoProgress', JSON.stringify(progress));
+        }
+        
+        function toggleCheck(item) {
+            item.classList.toggle('completed');
+            
+            // Save checklist progress
+            const checklistItems = document.querySelectorAll('.checklist li');
+            const completed = document.querySelectorAll('.checklist li.completed').length;
+            const total = checklistItems.length;
+            
+            const progress = JSON.parse(localStorage.getItem('husoProgress') || '{}');
+            if (!progress.day1) progress.day1 = {};
+            progress.day1.checklist = completed;
+            progress.day1.checklistTotal = total;
+            localStorage.setItem('husoProgress', JSON.stringify(progress));
+        }
+        
+        // Load saved progress on page load
+        window.onload = function() {
+            const progress = JSON.parse(localStorage.getItem('husoProgress') || '{}');
+            if (progress.day1 && progress.day1.checklist) {
+                const checklistItems = document.querySelectorAll('.checklist li');
+                for (let i = 0; i < progress.day1.checklist && i < checklistItems.length; i++) {
+                    checklistItems[i].classList.add('completed');
+                }
+            }
+        };
+    </script>
+</body>
+</html>
