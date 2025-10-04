@@ -1,10 +1,17 @@
 {
   "name": "huso",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "HUSO Preparation Platform - TypeScript + JSON",
+  "main": "dist/main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc && npm run copy",
+    "copy": "node scripts/copy.js",
+    "watch": "tsc --watch",
+    "dev": "tsc --watch",
+    "serve": "http-server dist -p 8080"
   },
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "typescript": "^5.3.0"
+  }
 }
