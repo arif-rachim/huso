@@ -98,6 +98,9 @@ export class LessonRenderer {
 
     // Render self-assessment
     this.container.appendChild(this.createSelfAssessment(lesson.selfAssessment));
+
+    // Check and show existing completion status
+    this.checkExistingCompletion(lesson.day);
   }
 
   private createHeader(lesson: Lesson): HTMLElement {
@@ -283,6 +286,10 @@ export class LessonRenderer {
     div.className = 'quiz';
     div.id = `quiz-day-${day}`;
 
+    // Load saved answers
+    const savedAnswers = this.loadQuizAnswers(day);
+    console.log('🟣 Loaded saved answers for day', day, ':', savedAnswers);
+
     questions.forEach((question, index) => {
       const questionDiv = document.createElement('div');
       questionDiv.className = 'quiz-question';
@@ -297,8 +304,12 @@ export class LessonRenderer {
       question.options.forEach(option => {
         const label = document.createElement('label');
         label.className = 'quiz-option';
+
+        const savedAnswer = savedAnswers[question.id];
+        const isChecked = savedAnswer === option.label ? 'checked' : '';
+
         label.innerHTML = `
-          <input type="radio" name="${question.id}" value="${option.label}">
+          <input type="radio" name="${question.id}" value="${option.label}" ${isChecked} onchange="window.saveQuizAnswer('${day}', '${question.id}', '${option.label}')">
           <span>${option.label}. ${option.text}</span>
         `;
         optionsDiv.appendChild(label);
@@ -418,7 +429,13 @@ export class LessonRenderer {
   }
 
   private saveQuizProgress(day: number, score: number, total: number): void {
-    const progress = JSON.parse(localStorage.getItem('husoProgress') || '{"quizScores": []}');
+    console.log('🔵 saveQuizProgress called:', { day, score, total });
+
+    const existingData = localStorage.getItem('husoProgress');
+    console.log('🔵 Existing localStorage data:', existingData);
+
+    const progress = JSON.parse(existingData || '{"quizScores": [], "completedDays": [], "lastAccessedDay": 1, "streak": 0, "subjectProgress": {}}');
+    console.log('🔵 Parsed progress:', progress);
 
     const existingScoreIndex = progress.quizScores.findIndex((s: any) => s.day === day);
     const scoreData = {
@@ -429,13 +446,80 @@ export class LessonRenderer {
       timestamp: new Date().toISOString()
     };
 
+    console.log('🔵 Score data to save:', scoreData);
+
     if (existingScoreIndex >= 0) {
+      console.log('🔵 Updating existing score at index:', existingScoreIndex);
       progress.quizScores[existingScoreIndex] = scoreData;
     } else {
+      console.log('🔵 Adding new score');
       progress.quizScores.push(scoreData);
     }
 
+    // Mark day as completed if score >= 80%
+    const percentage = (score / total) * 100;
+    console.log('🔵 Percentage:', percentage);
+
+    // Ensure completedDays array exists (for old localStorage data)
+    if (!progress.completedDays) {
+      console.log('🔵 completedDays was undefined, initializing as empty array');
+      progress.completedDays = [];
+    }
+
+    if (percentage >= 80 && !progress.completedDays.includes(day)) {
+      console.log('🔵 Marking day as completed');
+      progress.completedDays.push(day);
+      progress.completedDays.sort((a: number, b: number) => a - b);
+    }
+
+    // Update last accessed day
+    progress.lastAccessedDay = day;
+
+    console.log('🔵 Final progress object to save:', progress);
     localStorage.setItem('husoProgress', JSON.stringify(progress));
+
+    const saved = localStorage.getItem('husoProgress');
+    console.log('🔵 Verified saved data:', saved);
+
+    // Show completion status
+    this.showCompletionStatus(day, percentage);
+  }
+
+  private showCompletionStatus(day: number, percentage: number): void {
+    console.log('🟢 showCompletionStatus called:', { day, percentage });
+
+    const quizDiv = document.getElementById(`quiz-day-${day}`);
+    console.log('🟢 Quiz div found:', !!quizDiv);
+
+    if (!quizDiv) return;
+
+    const existingStatus = quizDiv.querySelector('.completion-status');
+    if (existingStatus) {
+      console.log('🟢 Removing existing status');
+      existingStatus.remove();
+    }
+
+    const statusDiv = document.createElement('div');
+    statusDiv.className = 'completion-status';
+
+    if (percentage >= 80) {
+      console.log('🟢 Creating COMPLETED badge');
+      statusDiv.innerHTML = `
+        <div class="completion-badge completed">
+          ✅ Day ${day} Completed! Great job! You scored ${percentage}%
+        </div>
+      `;
+    } else {
+      console.log('🟢 Creating INCOMPLETE badge');
+      statusDiv.innerHTML = `
+        <div class="completion-badge incomplete">
+          📝 Score: ${percentage}% - You need 80% or higher to complete this day. Keep practicing!
+        </div>
+      `;
+    }
+
+    quizDiv.appendChild(statusDiv);
+    console.log('🟢 Status badge appended');
   }
 
   // NEW RENDERING METHODS
@@ -622,4 +706,56 @@ export class LessonRenderer {
     };
     return icons[type] || '📊';
   }
+
+  private checkExistingCompletion(day: number): void {
+    console.log('🟡 checkExistingCompletion called for day:', day);
+
+    const storedData = localStorage.getItem('husoProgress');
+    console.log('🟡 Stored data:', storedData);
+
+    const progress = JSON.parse(storedData || '{"quizScores": [], "completedDays": []}');
+    console.log('🟡 Progress object:', progress);
+
+    // Find quiz score for this day
+    const quizScore = progress.quizScores.find((s: any) => s.day === day);
+    console.log('🟡 Found quiz score:', quizScore);
+
+    if (quizScore) {
+      const percentage = Math.round((quizScore.score / quizScore.totalQuestions) * 100);
+      console.log('🟡 Showing existing completion with percentage:', percentage);
+      this.showCompletionStatus(day, percentage);
+    } else {
+      console.log('🟡 No existing quiz score found');
+    }
+  }
+
+  private loadQuizAnswers(day: number): Record<string, string> {
+    const key = `quizAnswers_day_${day}`;
+    const saved = localStorage.getItem(key);
+    return saved ? JSON.parse(saved) : {};
+  }
+
+  private saveQuizAnswer(day: number, questionId: string, answer: string): void {
+    console.log('🟣 Saving answer:', { day, questionId, answer });
+
+    const key = `quizAnswers_day_${day}`;
+    const answers = this.loadQuizAnswers(day);
+    answers[questionId] = answer;
+
+    localStorage.setItem(key, JSON.stringify(answers));
+    console.log('🟣 Saved answers:', answers);
+  }
 }
+
+// Expose saveQuizAnswer to window for inline onclick
+(window as any).saveQuizAnswer = (day: string, questionId: string, answer: string) => {
+  console.log('🟣 Window.saveQuizAnswer called:', { day, questionId, answer });
+
+  const key = `quizAnswers_day_${day}`;
+  const saved = localStorage.getItem(key);
+  const answers = saved ? JSON.parse(saved) : {};
+  answers[questionId] = answer;
+
+  localStorage.setItem(key, JSON.stringify(answers));
+  console.log('🟣 Answer saved to localStorage');
+};

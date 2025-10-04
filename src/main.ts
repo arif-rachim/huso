@@ -49,6 +49,7 @@ class HusoApp {
     const prevBtn = document.getElementById('prev-day');
     const nextBtn = document.getElementById('next-day');
     const homeBtn = document.getElementById('home-btn');
+    const dashboardBtn = document.getElementById('dashboard-btn');
 
     if (prevBtn) {
       prevBtn.addEventListener('click', () => {
@@ -68,7 +69,13 @@ class HusoApp {
 
     if (homeBtn) {
       homeBtn.addEventListener('click', () => {
-        window.location.href = 'index.html';
+        window.location.href = 'dashboard.html';
+      });
+    }
+
+    if (dashboardBtn) {
+      dashboardBtn.addEventListener('click', () => {
+        window.location.href = 'dashboard.html';
       });
     }
   }
